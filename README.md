@@ -1,11 +1,11 @@
-#Funções e Operações Fuzzy
+# Funções e Operações Fuzzy
 
 ## 1 Implemente as funções de pertinência:
-<div> 
- • Triangular: A(x; a, m, b) = max{min[(x − a)/(m − a), (b − x)/(b − m)], 0} <\br> 
- • Trapezoidal: A(x; a, m, n, b) = max{min[(x − a)/(m − a), 1, (b − x)/(b − m)], 0} <\br> 
+
+ • Triangular: A(x; a, m, b) = max{min[(x − a)/(m − a), (b − x)/(b − m)], 0} \
+ • Trapezoidal: A(x; a, m, n, b) = max{min[(x − a)/(m − a), 1, (b − x)/(b − m)], 0} \
  • Gaussiana: A(x) = e^-k(x−m)2 <\br> 
-<\div>
+
 
 
 ## 2 Implemente os operadores de Complemento (C1 a C3), União (U1 a U4) e Interseção (I1
