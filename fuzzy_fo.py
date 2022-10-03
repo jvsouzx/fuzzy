@@ -101,18 +101,42 @@ def minimo(a, b):
         y.append(min(a[i], b[i]))
     return y
 
-# ante = list()
-# cons = list()
+def cog(x, a):
+    prod = np.sum(a * x)
+    sum = np.sum(a)
+    return prod/sum
 
-# for i in np.arange(0, 3, 1):
-#     ante.append(list())
-#     cons.append(list())
 
-# for i in np.arange(-10, 10, 0.01):
-#     ante[0].append(trapezoidal(i, -20, -15, -6, -3))
-#     ante[1].append(trapezoidal(i, -6, -3, 3, 6))
-#     ante[2].append(trapezoidal(i, 3, 6, 15, 20))
-#     cons[0].append(trapezoidal(i, -2.46, -1.46, 1.46, 2.46))
-#     cons[1].append(trapezoidal(i, 1.46, 2.46, 5, 7))
-#     cons[2].append(trapezoidal(i, 5, 7, 13, 15))
+### MAMDANI
+ante = list()
+cons = list()
 
+x = np.linspace(-10, 10, 100, False)
+y = np.linspace(0, 10, 100, False)
+
+
+ante.append(trapezoidal(x, -20, -15, -6, -3))
+ante.append(trapezoidal(x, -6, -3, 3, 6))
+ante.append(trapezoidal(x, 3, 6, 15, 20))
+
+cons.append(trapezoidal(y, -2.46, -1.46, 1.46, 2.46))
+cons.append(trapezoidal(y, 1.46, 2.46, 5, 7))
+cons.append(trapezoidal(y, 5, 7, 13, 15))
+
+b1 = minimo(ante[2], cons[2])
+b2 = minimo(ante[1], cons[1])
+b3 = minimo(ante[0], cons[0])
+
+out = maximo(maximo(b1, b2), b3)
+
+# plt.figure(1)
+# plt.ylim(0, 2)
+# plt.plot(x, ante[0])
+# plt.plot(x, ante[1])
+# plt.plot(x, ante[2])
+# plt.figure(2)
+# plt.ylim(0, 2)
+# plt.plot(y, cons[0])
+# plt.plot(y, cons[1])
+# plt.plot(y, cons[2])
+# plt.show()
