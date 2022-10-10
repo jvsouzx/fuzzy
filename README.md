@@ -1,2 +1,1 @@
 # Funções e Operações Fuzzy
-
